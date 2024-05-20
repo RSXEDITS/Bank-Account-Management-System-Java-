@@ -72,7 +72,10 @@ class Admin {
             System.out.println("4) Exit");
             System.out.print("Enter Your Choice: ");        
             while (!SCAN.hasNextInt()) {
+            	
+            	System.out.println(" ");
                 System.out.print("Invalid input. Please enter a number: ");
+                
                 SCAN.next();
             }
             choice = SCAN.nextInt();
@@ -113,13 +116,17 @@ class Admin {
 
         accounts.add(new Account(name, accountNumber, balance));
         saveAccountsToFile(accounts);
+        System.out.println(" ");
         System.out.println("Account Created Successfully!");
+        System.out.println(" ");
     }
 
     private void deleteAccount() {
         ArrayList<Account> accountsDetails = readAccountsFromFile();
         if (accountsDetails.isEmpty()) {
+        	System.out.println(" ");
             System.out.println("No Account Available");
+            System.out.println(" ");
         } else {
             System.out.print("Enter the name of the account to delete: ");
             String accountToDelete = SCAN.nextLine();
@@ -129,14 +136,18 @@ class Admin {
                 if (account.getName().equalsIgnoreCase(accountToDelete)) {
                     accountsDetails.remove(account);
                     saveAccountsToFile(accountsDetails);
+                    System.out.println(" ");
                     System.out.println("Account deleted successfully.");
+                    System.out.println(" ");
                     found = true;
                     break;
                 }
             }
 
             if (!found) {
+            	System.out.println(" ");
                 System.out.println("Account not found!");
+                System.out.println(" ");
             }
         }
     }
@@ -144,7 +155,9 @@ class Admin {
     private void viewAccounts() {
         ArrayList<Account> accountsDetails = readAccountsFromFile();
         if (accountsDetails.isEmpty()) {
+        	System.out.println(" ");
             System.out.println("No Account Available");
+            System.out.println(" ");
         } else {
             for (Account account : accountsDetails) {
                 System.out.println(account);
@@ -159,7 +172,9 @@ class Admin {
                 writer.write(account.getName() + "," + account.getAccountNumber() + "," + account.getBalance());
                 writer.newLine();
             }
+            System.out.println(" ");
             System.out.println("Account saved to file successfully.");
+            System.out.println(" ");
         } catch (IOException ex) {
             LOGGER.log(Level.SEVERE, "Error saving accounts to file", ex);
         }
@@ -178,7 +193,9 @@ class Admin {
                     accountsDetails.add(new Account(name, accountNumber, balance));
                 }
             }
+            System.out.println(" ");
             System.out.println("Accounts Details loaded from file successfully.");
+            System.out.println(" ");
         } catch (IOException ex) {
             LOGGER.log(Level.SEVERE, "Error reading accounts from file", ex);
         }
