@@ -35,5 +35,5 @@ Java Logging: For logging error messages and other significant events.
 This project demonstrates the use of core Java features, including object-oriented programming principles, file handling, and basic user input validation. It is a practical example of how to manage simple banking operations through a console-based interface.
 
 
-*Project is in bankGPT/src/bankGPT*
-*See class diagram to understand the project*
+*Project is in bankGPT/src/bankGPT*   
+<br>*See class diagram to understand the project*
